@@ -46,4 +46,4 @@ console.log(optimizedGCD(12, 18))
 console.log(optimizedGCD(40, 20))
 
 // Time Complexity: log (base theta) min(num1, num2) i.e O(log(min(a, b)))
-// space Complexity: O(!)
+// space Complexity: O(1)
