@@ -3,7 +3,8 @@
 function armstrong(num) {
     let sum = 0
     let originalNum = num
-    let numLen = String(num).length
+    // let numLen = String(num).length
+    let numLen1 = Math.floor(Math.log10(num)) + 1
 
     while (num > 0) {
         let digit = num % 10;
@@ -11,7 +12,7 @@ function armstrong(num) {
         num = Math.trunc(num / 10)
     }
 
-    return sum === originalNum ? true : false
+    return sum === originalNum
 }
 
 console.log(armstrong(153))
