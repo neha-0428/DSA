@@ -37,12 +37,65 @@ function merge(left, right) {
     .concat(right.slice(rightIndex));
 }
 
+
+function mergeSort2(arr, low, high) {
+    if (low >= high) {
+        return;
+    }
+
+    let mid = Math.floor((low + high) / 2);
+
+    mergeSort2(arr, low, mid);
+    mergeSort2(arr, mid + 1, high);
+
+    merge2(arr, low, mid, high);
+}
+
+function merge2(arr, low, mid, high) {
+    let sortedArray = [];
+    let left = low;
+    let right = mid + 1;
+
+    while (left <= mid && right <= high) {
+        if (arr[left] <= arr[right]) {
+            sortedArray.push(arr[left]);
+            left++;
+        } else {
+            sortedArray.push(arr[right]);
+            right++;
+        }
+    }
+
+    while (left <= mid) {
+        sortedArray.push(arr[left]);
+        left++;
+    }
+
+    while (right <= high) {
+        sortedArray.push(arr[right]);
+        right++;
+    }
+
+    // Copy back
+    for (let i = low; i <= high; i++) {
+        arr[i] = sortedArray[i - low];
+    }
+}
+
 let arr = [13, 46, 24, 52, 20, 9]
 let arr2 = [4, 73, 2, 73, 0, 51]
 let arr3 = [1, 2, 3, 4, 5];
 let arr4 = [6, 8, 92, 45, 12, 15, 74, 74, 21, 3]
 
-console.log(mergeSort(arr, 0, 5))
-console.log(mergeSort(arr2))
-console.log(mergeSort(arr3));
-console.log(mergeSort(arr4))
+// console.log(mergeSort(arr, 0, 5))
+// console.log(mergeSort(arr2))
+// console.log(mergeSort(arr3));
+// console.log(mergeSort(arr4))
+
+
+mergeSort2(arr, 0, 5)
+console.log(arr)
+// console.log(mergeSort2(arr2))
+// console.log(mergeSort2(arr3));
+// console.log(mergeSort2(arr4))
+
