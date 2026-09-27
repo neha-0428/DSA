@@ -33,3 +33,6 @@ function pattern2(n) {
 
 pattern2(4)
 
+
+//Time Complexity = approx O(N2)
+// Space Complexity = O(1)
