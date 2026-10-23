@@ -7,44 +7,47 @@ function union(arr1, arr2) {
     let result = []
 
     while (left < arr1.length && right < arr2.length) {
+        let value
 
-        if (arr1[left] < arr2[right] && arr1[left - 1] !== arr1[left]) {
+        if (arr1[left] < arr2[right]) {
 
-            result.push(arr1[left])
-            left++
+            value = arr1[left++]
 
-        } else if (arr2[right] < arr1[left] && arr2[right - 1] !== arr2[right]) {
+        } else if (arr2[right] < arr1[left]) {
 
-            result.push(arr2[right])
-            right++
+            value = arr2[right++]
 
         } else {
 
-            result.push(arr1[left])
+            value = arr1[left]
             left++
             right++
         }
+
+        if (result.length === 0 || result[result.length - 1] !== value) {
+            result.push(value)
+        }
+
+        console.log('here')
 
     }
 
     while (left < arr1.length) {
 
-        if (arr1[left - 1] !== arr1[left]) {
-            
+        let value = arr1[left++]
+
+        if (result[result.length - 1] !== value) {
             result.push(arr1[left])
-            
         }
-        left++
     }
 
     while (right < arr2.length) {
 
-        if (arr2[right - 1] !== arr2[right]) {
-            
+        let value = arr2[right++]
+
+        if (result[result.length - 1] !== value) {
             result.push(arr2[right])
-            
         }
-        right++
     }
 
     return result
