@@ -7,10 +7,8 @@ function maxConsecutive(arr) {
 
         if (arr[i] === 1) {
             count++
+            maxCount = Math.max(maxCount, count)
         } else {
-            if (count > maxCount) {
-                maxCount = count
-            }
             count = 0
         }
     }
@@ -18,7 +16,7 @@ function maxConsecutive(arr) {
     return maxCount
 }
 
-// let arr = [1, 1, 0, 0, 1, 1, 1, 0]
+let arr = [1, 1, 0, 0, 1, 1, 1, 0]
 // let arr = [0, 0, 0, 0, 0, 0, 0, 1]
-let arr = [1]
+// let arr = [1]
 console.log(maxConsecutive(arr))
